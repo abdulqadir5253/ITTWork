@@ -5,9 +5,9 @@ public class InfoPage {
 	SetInfo ansh = new SetInfo();
 	SetInfo manoj = new SetInfo();	
 			
-	public String infoMethod(String username){
+	public String getDesignation(String username){
 		abdul.setDseg("Executive");
-		ansh.setDseg("Technical Lead");
+		ansh.setDseg("Lead");
 		manoj.setDseg("Manager");
 		
 		if(username.equals("abdul qadir"))
@@ -30,7 +30,3 @@ class SetInfo{
 		return dseg;
 	}
 }
-
-
-
-
