@@ -23,12 +23,17 @@ class Executive extends Leaves{
 			new ApplyForLeave(username);
 			break;
 		case 2:
-			if(new LeaveManage().checkStatus(username)){
+			if(new LeaveManage().checkStatus(username) == 1){
 				System.out.println("Leave Granted");
 				new Executive().leave(username);
 			}										
-			else				
+			else if(new LeaveManage().checkStatus(username) == 2){
 				System.out.println("Application Pending for Approval");
+			}
+			else if(new LeaveManage().checkStatus(username) == -1)
+				System.out.println("Application cancelled");
+			else if(new LeaveManage().checkStatus(username) == 0)
+				System.out.println("No Application");
 			break;
 		case 3:
 			new Index().login();
@@ -52,7 +57,13 @@ class Lead extends Leaves{
 			System.out.println("Application Pending for Approval");
 			break;
 		case 3:
-			System.out.println("No Application Here!");
+//			System.out.println("No Application Here!");
+			if(LeaveInfos.leaveApplication == 0){
+				System.out.println("No Leave Applications Here!");
+				new Lead().leave();
+			}							
+			else
+				new LeaveInfos();			
 			break;
 		case 4:
 			new Index().login();
